@@ -4,7 +4,7 @@ IF=wlp3s0
 # Interface
 U32="$TC filter add dev $IF protocol ip parent 1:0 prio 1 u32"
 
-remove_upload()
+remove_download()
 {
 #funkcja do usuwania ifb root tym samym usuwajaca wszystkie zasady wysylania
     tc qdisc del dev $IF ingress
@@ -15,7 +15,7 @@ remove_upload()
 
 
 
-set_upload()
+set_download()
 {
     local OPTIND=1
     local arg src_ip dst_ip s_port d_port u_rate u_delay u_loss
